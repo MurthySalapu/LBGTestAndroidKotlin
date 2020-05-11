@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+   >
+    
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="ccom.lbg.lbgtest.viewmodel.TestFMFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout  android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Spinner android:layout_margin="@dimen/layout_margin"
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_height"
+            android:entries="@array/items"
+            android:onItemSelected="@{(parent,view,pos,id)->viewModel.onSelectItem(parent,view,pos,id)}">
+
+        </Spinner>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_marginEnd="@dimen/layout_margin_right"
+                android:layout_marginStart="@dimen/layout_margin_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(text, start, before, count) -> viewModel.onSearchTextChanged(text)}"
+                />
+            <ImageView
+                android:layout_width="@dimen/layout_width_small"
+                android:layout_height="@dimen/layout_height_small"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/layout_margin_right"
+                android:onClick="@{() -> viewModel.onSearchClicked()}"
+                android:src="@android:drawable/ic_menu_search"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/layout_margin"
+            android:layout_height="wrap_content"
+             />
+
+    </LinearLayout>
+
+        <ProgressBar
+            android:visibility="@{safeUnbox(viewModel.loadView) ? View.VISIBLE : View.GONE}"
+            android:id="@+id/progressBar_cyclic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/layout_height"
+            android:minWidth="@dimen/layout_width"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    
+</layout>
+

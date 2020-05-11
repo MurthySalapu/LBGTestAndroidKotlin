@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin">20dp</dimen>
+    <dimen name="layout_margin_right">20dp</dimen>
+    <dimen name="layout_margin_left">20dp</dimen>
+    <dimen name="layout_margin_top">20dp</dimen>
+    <dimen name="layout_height">50dp</dimen>
+    <dimen name="layout_height_small">35dp</dimen>
+    <dimen name="layout_width_small">35dp</dimen>
+
+    <dimen name="layout_height_medium">100dp</dimen>
+
+    <dimen name="layout_height_large">120dp</dimen>
+    <dimen name="layout_width">50dp</dimen>
+    <dimen name="layout_padding_left">10dp</dimen>
+    <dimen name="layout_padding_bottom">10dp</dimen>
+    <dimen name = "text_size">18dp</dimen>
+    <dimen name="corner_radius">10dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="padding_bottom_small">2dp</dimen>
+    <dimen name="margin_top_small">2dp</dimen>
+    <dimen name="margin_end_medium">10dp</dimen>
+
+</resources>

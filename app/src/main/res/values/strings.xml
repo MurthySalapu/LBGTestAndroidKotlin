@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LastFM</string>
+    <string-array name="items">
+        <item>Album</item>
+        <item>Artist</item>
+        <item>Track</item>
+    </string-array>
+</resources>

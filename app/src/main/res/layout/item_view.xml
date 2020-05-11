@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dataModel"
+            type="com.lbg.lbgtest.model.CommonResult" />
+        <variable
+            name="viewModel"
+            type="com.lbg.lbgtest.viewmodel.ItemAdapterViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin"
+        android:id="@+id/cardView"
+        android:onClick="@{() -> viewModel.onCardItemClicked(dataModel.url)}"
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    android:paddingStart="@dimen/layout_padding_left"
+                    android:paddingBottom="@dimen/padding_bottom_small"
+                    android:text="@{dataModel.name}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    android:layout_marginEnd="@dimen/margin_end_medium"
+                    android:paddingBottom="@dimen/padding_bottom_small"
+                    android:text="@{viewModel.getData(dataModel)}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height_large"
+                app:profileImage="@{dataModel.imageUrl}"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
+
